@@ -9,11 +9,11 @@ package proyecto;
 public class Rol {
 
 	/**
-	 * //Información disponible para el rol
+	 * //Informaciï¿½n disponible para el rol
 	 */
 	private String informacion;
 	/**
-	 * //Nombre/título del rol a asignar a un jugador
+	 * //Nombre/tï¿½tulo del rol a asignar a un jugador
 	 */
 	private String titulo;
 
@@ -23,30 +23,30 @@ public class Rol {
 	}
 
 	/**
-	 * //Información disponible para el rol
+	 * //Informaciï¿½n disponible para el rol
 	 */
-	public String getinformación(){
+	public String getinformacion(){
 		return informacion;
 	}
 
 	/**
-	 * //Información disponible para el rol
+	 * //Informaciï¿½n disponible para el rol
 	 * 
 	 * @param newVal
 	 */
-	public void setinformación(String newVal){
+	public void setinformacion(String newVal){
 		informacion = newVal;
 	}
 
 	/**
-	 * //Nombre/título del rol a asignar a un jugador
+	 * //Nombre/tï¿½tulo del rol a asignar a un jugador
 	 */
 	public String gettitulo(){
 		return titulo;
 	}
 
 	/**
-	 * //Nombre/título del rol a asignar a un jugador
+	 * //Nombre/tï¿½tulo del rol a asignar a un jugador
 	 * 
 	 * @param newVal
 	 */

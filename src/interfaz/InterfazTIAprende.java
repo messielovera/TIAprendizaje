@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.GridLayout;
@@ -35,11 +36,13 @@ import java.awt.event.ActionEvent;
 public class InterfazTIAprende extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JPasswordField textField;
 	private JTextField textField_1;
 	private JPanel panel_1;
 	private JPanel panel;
 	private JButton btnLogIn;
+	private PanelHomeUsr homeusr;
+	private PanelInicioActividad act1;
 	
 
 	/**
@@ -88,7 +91,7 @@ public class InterfazTIAprende extends JFrame {
 		lblPassword.setAlignmentX(0.5f);
 		panel.add(lblPassword);
 		
-		textField = new JTextField();
+		textField = new JPasswordField();
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -132,9 +135,9 @@ public class InterfazTIAprende extends JFrame {
 			this.remove(panel_1);
 			this.panel.setVisible(false);
 			this.remove(contentPane);
+			homeusr = new PanelHomeUsr(this);
 			Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 			this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-			PanelHomeUsr homeusr = new PanelHomeUsr(this);
 			this.add(homeusr);
 			this.validate();
 			this.repaint();
@@ -147,7 +150,16 @@ public class InterfazTIAprende extends JFrame {
 	
 	public void iniciarActividad()
 	{
-		
+		this.setTitle("TI para el Apoyo en el Aprendizaje - Etapa 1 Iteracion 1");
+		this.homeusr.setVisible(false);
+		this.remove(homeusr);
+		act1 = new PanelInicioActividad(this);
+		this.setSize(800,600);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+		this.add(act1);
+		this.validate();
+		this.repaint();
 	}
 }
 

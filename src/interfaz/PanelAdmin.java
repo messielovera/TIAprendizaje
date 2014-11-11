@@ -14,9 +14,6 @@ public class PanelAdmin extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelAdmin() {
-		
-		JLabel lblEstoyEnAdministrador = new JLabel("Estoy en Administrador");
-		add(lblEstoyEnAdministrador);
 
 	}
 

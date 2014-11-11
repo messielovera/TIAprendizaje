@@ -125,15 +125,16 @@ public class InterfazTIAprende extends JFrame {
 			this.repaint();
 			
 		}
-		else if(usuario.equals("usr1") || usuario.equals("usr2"))
+		else if(usuario.equals("user1") || usuario.equals("user2"))
 		{
-			this.setSize(800,600);
 			this.setTitle("TI para el Apoyo en el Aprendizaje - Menu Principal");
+			this.panel_1.setVisible(false);
 			this.remove(panel_1);
+			this.panel.setVisible(false);
 			this.remove(contentPane);
 			Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 			this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-			PanelHomeUsr homeusr = new PanelHomeUsr();
+			PanelHomeUsr homeusr = new PanelHomeUsr(this);
 			this.add(homeusr);
 			this.validate();
 			this.repaint();
@@ -142,6 +143,11 @@ public class InterfazTIAprende extends JFrame {
 		{
 			  JOptionPane.showMessageDialog(this, "El nombre de usuario o password no son correctos", "Error de inicio de sesion", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+	
+	public void iniciarActividad()
+	{
+		
 	}
 }
 

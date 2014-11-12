@@ -32,6 +32,7 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class InterfazTIAprende extends JFrame {
 
@@ -43,6 +44,8 @@ public class InterfazTIAprende extends JFrame {
 	private JButton btnLogIn;
 	private PanelHomeUsr homeusr;
 	private PanelInicioActividad act1;
+	
+	private ArrayList decisiones;
 	
 
 	/**
@@ -65,6 +68,7 @@ public class InterfazTIAprende extends JFrame {
 	 * Create the frame.
 	 */
 	public InterfazTIAprende() {
+		decisiones = new ArrayList<String>();
 		setTitle("TI para el Apoyo en el Aprendizaje - Autenticacion");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400,100);
@@ -151,15 +155,39 @@ public class InterfazTIAprende extends JFrame {
 	public void iniciarActividad()
 	{
 		this.setTitle("TI para el Apoyo en el Aprendizaje - Etapa 1 Iteracion 1");
+		this.setLayout(new BorderLayout());
 		this.homeusr.setVisible(false);
 		this.remove(homeusr);
 		act1 = new PanelInicioActividad(this);
 		this.setSize(800,600);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-		this.add(act1);
+		this.add(act1, BorderLayout.CENTER);
 		this.validate();
 		this.repaint();
+	}
+
+	public void consolidarDecision(String param) 
+	{
+		System.out.println("La decision tomada por el user1 es: " +param);
+		decisiones.add(param);
+		act1.cambiarTextoRespuesta("Sales and Operations Planning La empresa Thai Utensils vende juegos de cubiertos. El SKU corresponde a un juego de cubiertos. Los históricos de ventas muestran que la demanda del "
+				+ "producto es estacionaria y puede aproximarse a una distribución normal ND. La información de se muestra en la tabla siguiente: -  La demanda que no se cubre en un periodo puede cubrirse en periodos "
+				+ "subsiguientes. El inventario inicial es de 150 SKUs. - Cualquier orden de producción toma 1 mes en producirse (si hay la capacidad) independientemente de las cantidades ordenadas. No se puede adquirir "
+				+ "producto de fuentes externas. - Inicialmente hay 15 trabajadores disponibles en la fábrica. Un trabajador en la planta nunca está inactivo y por lo tanto produce todo el tiempo. No pueden tenerse más "
+				+ "de 20 trabajadores ni menos de 5 en ningún periodo. - El salario mensual de un trabajador es de $80/trabajador. Contratar un trabajador cuesta $20 y despedirlo cuesta $100. ");
+	}
+	
+	public void mostrarDecisiones(String param) 
+	{
+		System.out.println("La decision tomada por el user1 es: " +param);
+		decisiones.add(param);
+		String resultado = "";
+		for (int i = 0; i < decisiones.size(); i++) 
+		{
+			resultado += "\n "+ i+" - "+ decisiones.get(i);
+		}
+		System.out.println("La decisiones hasta ahora son:  " +resultado);
 	}
 }
 
